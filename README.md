@@ -254,11 +254,9 @@ hashcat -m 0 -a 0 "c3fcd3d76192e4007dfb496cca67e13b"  rockyou.txt
 
 <img src="assets/prints/Screenshot_2024-06-11_17-18-39.png" alt="FSociety Logo" width="700" height="auto">
 
-Ok!!!! Now let's try to access that server as "root"...
+Ok!!!! Now if you try to change users inside that shell, you'll not make it!!!!
 
 <img src="assets/prints/Screenshot_2024-06-11_17-18-33.png" alt="FSociety Logo" width="700" height="auto">
-
-Booom!!!! Doesn't work!!!! 
 
 But... relax, there's a trick you can use to solve this. 
 
@@ -281,6 +279,84 @@ Type this 👇
 su root
 ````
 
+You'll be asked for the robot password that you already cracked. And we're robot!!!!!!
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-40.png" alt="FSociety Logo" width="700" height="auto">
+ 
+Now you try to "cat" that hash once again and see what you can get 💡
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-41.png" alt="FSociety Logo" width="700" height="auto">
+
+And there it is.... our second flag 🚩
+
 ````
-su root
+822c73956184f694993bede3eb39f959
 ````
+
+Once we're in.... let's take a look at the directories we have here:
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-42.png" alt="FSociety Logo" width="700" height="auto">
+
+
+As you may noticed, there's a root directory, but things are that easy right?
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-43.png" alt="FSociety Logo" width="700" height="auto">
+
+So we must get root access to the machine... so let's use one more trick that can give it to us.
+
+If pay atention to the diretories permissions, all of them belongs to the "root" group... so, what about run something like this to see what we can get:
+
+````
+find / -perm -4000 2>/dev/null
+````
+
+Basicly the command find / -perm -4000 2>/dev/null searches the entire filesystem (starting from the root directory /) for files that have the setuid (set user ID upon execution) permission set. Here's a breakdown of the command:
+
+- find /: Start searching from the root directory (/).
+- perm -4000: Look for files with the setuid permission. The -4000 represents the setuid bit.
+- 2>/dev/null: Redirect any error messages (such as permission denied errors) to /dev/null to suppress them.
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-44.png" alt="FSociety Logo" width="700" height="auto">
+
+And there's a directory that took my atention 👉 "/usr/local/bin/nmap"
+
+And you can find ways to execute bypass at Unix binaries and miscondigured systems... so click here go to this website 👉 [GTFOBins](https://gtfobins.github.io/). 
+
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-45.png" alt="FSociety Logo" width="700" height="auto">
+
+Here you can type "nmap" and click "SUID"
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-46.png" alt="FSociety Logo" width="700" height="auto">
+
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-47.png" alt="FSociety Logo" width="700" height="auto">
+
+Now copy this command ⬇️
+
+````
+sudo nmap --interactive
+````
+<img src="assets/prints/Screenshot_2024-06-11_17-18-48.png" alt="FSociety Logo" width="700" height="auto">
+
+Now you can type this in order to get access to "root"
+
+````
+!sh
+````
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-49.png" alt="FSociety Logo" width="700" height="auto">
+
+
+Now we can access that root directory to see what we got:
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-50.png" alt="FSociety Logo" width="700" height="auto">
+
+
+And there it is.... our second flag 🚩
+
+<img src="assets/prints/Screenshot_2024-06-11_17-18-51.png" alt="FSociety Logo" width="700" height="auto">
+
+
+### Our job here is complete 🎉
+
