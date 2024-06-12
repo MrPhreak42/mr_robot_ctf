@@ -360,3 +360,17 @@ And there it is.... our second flag 🚩
 
 ### Our job here is complete 🎉
 
+<img src="assets/prints/Screenshot_2024-06-11_17-18-52.png" alt="FSociety Logo" width="700" height="auto">
+
+
+
+## References
+
+Here are all the references and content that searched in the internet:
+
+
+ - [Try Hack Me](https://tryhackme.com/r/room/mrrobot)
+ - [GTFOBins](https://gtfobins.github.io)
+ - [How to Crack Hashes with Hashcat — a Practical Pentesting Guide](https://www.freecodecamp.org/news/hacking-with-hashcat-a-practical-guide/)
+ - [Kali Tools](https://www.kali.org/tools/)
+
