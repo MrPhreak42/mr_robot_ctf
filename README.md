@@ -248,9 +248,13 @@ Type enter and it tells you what type hash is this:
 
 In our case is a md5... ok!!!! Let's decode it !!!
 
+````
+hashcat -m 0 -a 0 "c3fcd3d76192e4007dfb496cca67e13b"  rockyou.txt
+````
+
 <img src="assets/prints/Screenshot_2024-06-11_17-18-39.png" alt="FSociety Logo" width="700" height="auto">
 
-So let's try to access that server as "root"...
+Ok!!!! Now let's try to access that server as "root"...
 
 <img src="assets/prints/Screenshot_2024-06-11_17-18-33.png" alt="FSociety Logo" width="700" height="auto">
 
